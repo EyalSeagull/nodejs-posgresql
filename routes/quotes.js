@@ -1,24 +1,14 @@
 const router = require('express').Router();
-const quotes = require('../services/quotes');
+import dbController from '../controllers/db-controller';
 
 /* GET quotes listing. */
-router.get('/', async function(req, res) {
-  try {
-    res.json(await quotes.getMultiple(req.query.page));
-  } catch (err) {
-    console.error(`Error while getting quotes `, err.message);
-    res.status(err.statusCode || 500).json({'message': err.message});
-  }
-});
+router.get(
+  '/',
+  dbController.getMultiple);
 
 /* POST quotes */
-router.post('/', async function(req, res) {
-  try {
-    res.json(await quotes.create(req.body));
-  } catch (err) {
-    console.error(`Error while posting quotes `, err.message);
-    res.status(err.statusCode || 500).json({'message': err.message});
-  }
-});
+router.post(
+  '/',
+  dbController.create);
 
 module.exports = router;

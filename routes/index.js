@@ -1,7 +1,7 @@
 var router = require('express').Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.json({message: 'alive'});
 });
 
