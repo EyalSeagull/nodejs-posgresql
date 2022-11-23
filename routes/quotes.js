@@ -2,7 +2,7 @@ const router = require('express').Router();
 const quotes = require('../services/quotes');
 
 /* GET quotes listing. */
-router.get('/', async function(req, res, next) {
+router.get('/', async function(req, res) {
   try {
     res.json(await quotes.getMultiple(req.query.page));
   } catch (err) {
@@ -12,7 +12,7 @@ router.get('/', async function(req, res, next) {
 });
 
 /* POST quotes */
-router.post('/', async function(req, res, next) {
+router.post('/', async function(req, res) {
   try {
     res.json(await quotes.create(req.body));
   } catch (err) {
