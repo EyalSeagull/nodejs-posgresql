@@ -1,5 +1,5 @@
 const router = require('express').Router();
-import dbController from '../controllers/db-controller';
+const dbController = require('../controllers/db-controller');
 
 /* GET quotes listing. */
 router.get(
